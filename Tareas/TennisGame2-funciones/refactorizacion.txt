@@ -1,0 +1,14 @@
+método Get Score:
+2-Cambiar Nombres
+1-Eliminar duplicacion de bloques
+3-Nombres mas descriptivos para funciones
+4-Números mágicos
+
+Otros métodos:
+-Ciclos
+
+
+Para git
+1.-Extraer en métodos el cuerpo del getScore
+
+al extraer metodos fijarse si se asignan sus parametros
