@@ -16,22 +16,50 @@ public class TennisGame2 implements TennisGame
 
     public String getScore(){
         String score = "";
-		if (P1point!=P2point)
+		if (isNormal())
 		    score = getLiteral(P1point) + "-" + getLiteral(P2point);
-		if (P1point == P2point && P1point < 4)
+		if (isTie())
 		    score = getLiteral(P1point) + "-All";
-		if (P1point==P2point && P1point>=3)
+		if (isDeuce())
 			score = "Deuce";
-		if (P1point > P2point && P2point >= 3)
+		if (isInAdvantageOver())
 		    score = "Advantage player1";
-		if (P2point > P1point && P1point >= 3)
+		if (isInAdvantageOver1())
 		    score = "Advantage player2";
-		if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
+		if (isWinnerOver())
 		    score = "Win for player1";
-		if (P2point>=4 && P1point>=0 && (P2point-P1point)>=2)
+		if (isWinnerOver1())
 		    score = "Win for player2";
         return score;
     }
+
+	private boolean isWinnerOver1() {
+		return P2point>=4 && P1point>=0 && (P2point-P1point)>=2;
+	}
+
+	private boolean isWinnerOver() {
+		return P1point>=4 && P2point>=0 && (P1point-P2point)>=2;
+	}
+
+	private boolean isInAdvantageOver1() {
+		return P2point > P1point && P1point >= 3;
+	}
+
+	private boolean isInAdvantageOver() {
+		return P1point > P2point && P2point >= 3;
+	}
+
+	private boolean isDeuce() {
+		return P1point==P2point && P1point>=3;
+	}
+
+	private boolean isTie() {
+		return P1point == P2point && P1point < 4;
+	}
+
+	private boolean isNormal() {
+		return P1point!=P2point;
+	}
     private String getLiteral(int playerPoints) {
 		String result="";
 		if (playerPoints==0)
