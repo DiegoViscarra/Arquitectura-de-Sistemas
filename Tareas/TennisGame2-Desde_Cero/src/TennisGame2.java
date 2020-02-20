@@ -16,15 +16,20 @@ public class TennisGame2 implements TennisGame
 
     public String getScore(){
         String score = "";
-        score = normal1(score);
-        score = tie(score);
-        score = deuce(score);
-        score = advantage(score);
-        
-        score = advantage1(score);
-        
-        score = win(score);
-        score = win1(score);
+		if (P1point!=P2point)
+		    score = getLiteral(P1point) + "-" + getLiteral(P2point);
+		if (P1point == P2point && P1point < 4)
+		    score = getLiteral(P1point) + "-All";
+		if (P1point==P2point && P1point>=3)
+			score = "Deuce";
+		if (P1point > P2point && P2point >= 3)
+		    score = "Advantage player1";
+		if (P2point > P1point && P1point >= 3)
+		    score = "Advantage player2";
+		if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
+		    score = "Win for player1";
+		if (P2point>=4 && P1point>=0 && (P2point-P1point)>=2)
+		    score = "Win for player2";
         return score;
     }
     private String getLiteral(int playerPoints) {
@@ -39,63 +44,7 @@ public class TennisGame2 implements TennisGame
 			result= "Forty";
 		return result;
 	}
-	private String win1(String score) {
-		if (P2point>=4 && P1point>=0 && (P2point-P1point)>=2)
-        {
-            score = "Win for player2";
-        }
-		return score;
-	}
-
-	private String win(String score) {
-		if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
-        {
-            score = "Win for player1";
-        }
-		return score;
-	}
-
-	private String advantage1(String score) {
-		if (P2point > P1point && P1point >= 3)
-        {
-            score = "Advantage player2";
-        }
-		return score;
-	}
-
-	private String advantage(String score) {
-		if (P1point > P2point && P2point >= 3)
-        {
-            score = "Advantage player1";
-        }
-		return score;
-	}
-
-
-	private String normal1(String score) {
-		if (P1point!=P2point)
-        {
-            score = getLiteral(P1point) + "-" + getLiteral(P2point);
-        }
-		return score;
-	}
-
-	private String tie(String score) {
-		if (P1point == P2point && P1point < 4)
-        {
-            score = getLiteral(P1point) + "-All";
-        }
-		return score;
-	}
-	
-	private String deuce(String score) {
-		if (P1point==P2point && P1point>=3)
-            score = "Deuce";
-		return score;
-	}
-
-    
-    public void SetP1Score(int number){
+	public void SetP1Score(int number){
         
         for (int i = 0; i < number; i++)
         {
