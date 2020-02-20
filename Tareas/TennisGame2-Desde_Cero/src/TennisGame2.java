@@ -22,31 +22,24 @@ public class TennisGame2 implements TennisGame
 		    score = getLiteral(P1point) + "-All";
 		if (isDeuce())
 			score = "Deuce";
-		if (isInAdvantageOver())
+		if (isInAdvantageOver(P1point, P2point))
 		    score = "Advantage player1";
-		if (isInAdvantageOver1())
+		if (isInAdvantageOver(P2point, P1point))
 		    score = "Advantage player2";
-		if (isWinnerOver())
+		if (isWinnerOver(P1point, P2point))
 		    score = "Win for player1";
-		if (isWinnerOver1())
+		if (isWinnerOver(P2point, P1point))
 		    score = "Win for player2";
         return score;
     }
 
-	private boolean isWinnerOver1() {
-		return P2point>=4 && P1point>=0 && (P2point-P1point)>=2;
+
+	private boolean isWinnerOver(int fistPlayerPoints, int secondPlayerPoints) {
+		return fistPlayerPoints>=4 && secondPlayerPoints>=0 && (fistPlayerPoints-secondPlayerPoints)>=2;
 	}
 
-	private boolean isWinnerOver() {
-		return P1point>=4 && P2point>=0 && (P1point-P2point)>=2;
-	}
-
-	private boolean isInAdvantageOver1() {
-		return P2point > P1point && P1point >= 3;
-	}
-
-	private boolean isInAdvantageOver() {
-		return P1point > P2point && P2point >= 3;
+	private boolean isInAdvantageOver(int fistPlayerPoints, int secondPlayerPoints) {
+		return fistPlayerPoints > secondPlayerPoints && secondPlayerPoints >= 3;
 	}
 
 	private boolean isDeuce() {
