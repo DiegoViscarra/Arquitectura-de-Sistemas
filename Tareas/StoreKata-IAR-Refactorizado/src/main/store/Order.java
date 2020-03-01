@@ -57,7 +57,7 @@ public class Order {
 		for (OrderItem item : items) {
 			float totalItem=0;
 			float itemAmount = item.getProduct().getUnitPrice() * item.getQuantity();
-			totalItem = categoria(item, totalItem, itemAmount);
+			totalItem = discount(item, totalItem, itemAmount);
 			totalItems += totalItem;
 		}
 
@@ -70,15 +70,15 @@ public class Order {
 		return totalItems + totalItems * 5 / 100 + 15;
 	}
 
-	private float categoria(OrderItem item, float totalItem, float itemAmount) {
+	private float discount(OrderItem item, float totalItem, float itemAmount) {
 		if (item.getProduct().getCategory() == ProductCategory.Accessories) {
 			float booksDiscount = 0;
-			booksDiscount = cantidad1(itemAmount, booksDiscount);
+			booksDiscount = getDiscountAccesorie(itemAmount, booksDiscount);
 			totalItem = itemAmount - booksDiscount;
 		}
 		else if (item.getProduct().getCategory() == ProductCategory.Cloathing) {
 			float cloathingDiscount = 0;
-			cloathingDiscount = cantidad(item, cloathingDiscount);
+			cloathingDiscount = getDiscountClothing(item, cloathingDiscount);
 			totalItem = itemAmount - cloathingDiscount;
 		}
 		else if (item.getProduct().getCategory() == ProductCategory.Bikes) {
@@ -88,14 +88,14 @@ public class Order {
 		return totalItem;
 	}
 	
-	private float cantidad(OrderItem item, float cloathingDiscount) {
+	private float getDiscountClothing(OrderItem item, float cloathingDiscount) {
 		if (item.getQuantity() > 2) {
 			cloathingDiscount = item.getProduct().getUnitPrice();
 		}
 		return cloathingDiscount;
 	}
 	
-	private float cantidad1(float itemAmount, float booksDiscount) {
+	private float getDiscountAccesorie(float itemAmount, float booksDiscount) {
 		if (itemAmount >= 100) {
 			booksDiscount = itemAmount * 10 / 100;
 		}
