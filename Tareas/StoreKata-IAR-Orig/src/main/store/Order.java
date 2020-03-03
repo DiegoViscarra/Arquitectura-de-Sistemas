@@ -52,17 +52,22 @@ public class Order {
 		return items;
 	}
 
-	public float total() {
-		float totalItems = 0;
-		totalItems = calculateTotalForItems();
+	public float calculateTotalForItem() {
+		float totalItems = calculateTotalForItems();
+		int shipping = calculateShipping();
+		float tax = calculateTax(totalItems);
+		return totalItems + tax + shipping;
+	}
 
+	private float calculateTax(float totalItems) {
+		return totalItems * 5 / 100;
+	}
+
+	private int calculateShipping() {
 		if (this.deliveryCountry == "USA"){
-			// total=totalItems + tax + 0 shipping
-			return totalItems + totalItems * 5 / 100;
+			return 0;
 		}
-
-		// total=totalItemst + tax + 15 shipping
-		return totalItems + totalItems * 5 / 100 + 15;
+		return 15;
 	}
 
 	private float calculateTotalForItems() {
