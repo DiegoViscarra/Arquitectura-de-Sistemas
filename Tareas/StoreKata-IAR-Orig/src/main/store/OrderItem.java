@@ -21,12 +21,9 @@ public class OrderItem {
 		return quantity;
 	}
 
-	float calculateTotalFor() {
+	float calculateTotalFor(OrderItem item) {
 		float totalItem=0;
-		float discount = 0;
-		DiscountCalculator discountCalculator = createDiscountCalculator();
-		discount = discountCalculator.calculateDiscount(this);
-		totalItem = calculateTotalAmount() - discount;
+		float itemAmount = item.getProduct().getUnitPrice() * item.getQuantity();
 		
 		if (getProduct().getCategory() == ProductCategory.Accessories) {
 			float booksDiscount = 0;
