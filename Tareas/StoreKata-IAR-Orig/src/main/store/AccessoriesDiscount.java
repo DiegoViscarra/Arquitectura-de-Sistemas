@@ -9,7 +9,7 @@ public class AccessoriesDiscount implements DiscountCalculator{
 		if (itemAmount >= 100) {
 			booksDiscount = itemAmount * 10 / 100;
 		}
-		return itemAmount - booksDiscount;
+		return booksDiscount;
 	}
 	
 }

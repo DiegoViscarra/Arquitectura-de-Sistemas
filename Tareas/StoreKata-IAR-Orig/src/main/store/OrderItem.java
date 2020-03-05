@@ -21,21 +21,27 @@ public class OrderItem {
 		return quantity;
 	}
 
-	float calculateTotalFor(OrderItem item) {
-		float totalItem=0;
-		if (getProduct().getCategory() == ProductCategory.Accessories) {
-			
-		}
-		if (getProduct().getCategory() == ProductCategory.Bikes) {
-			
-		}
-		if (getProduct().getCategory() == ProductCategory.Cloathing) {
-	
-		}
-		
+	float calculateTotalFor() {
+		float totalItem = 0;
+		float discount = 0;
+		DiscountCalculator discountCalculator = createDiscountCalculator();
+		discount = discountCalculator.calculateDiscount(this);
+		totalItem = calculateTotalAmount() - discount;
 		return totalItem;
 	}
-
+	
+	private DiscountCalculator createDiscountCalculator() {
+		DiscountCalculator discountCalculator = null;
+		if (getProduct().getCategory() == ProductCategory.Accessories)
+			discountCalculator = new AccessoriesDiscount();
+		if (getProduct().getCategory() == ProductCategory.Bikes)
+			discountCalculator = new BikesDiscount();
+		if (getProduct().getCategory() == ProductCategory.Cloathing)
+			discountCalculator = new CloathingDiscount();
+		
+		return discountCalculator;
+	}
+	
 	private float calculateTotalAmount() {
 		float itemAmount = getProduct().getUnitPrice() * getQuantity();
 		return itemAmount;
