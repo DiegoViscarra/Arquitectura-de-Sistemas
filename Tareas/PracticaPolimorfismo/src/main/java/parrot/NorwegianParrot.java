@@ -4,7 +4,7 @@ public class NorwegianParrot implements ParrotType{
 
 	@Override
 	public double calculateSpeed(Parrot parrot) {
-		return parrot.getBaseSpeed(parrot.voltage);
+		return (parrot.isNailed) ? 0 : parrot.getBaseSpeed(parrot.voltage);
 	}
 
 }

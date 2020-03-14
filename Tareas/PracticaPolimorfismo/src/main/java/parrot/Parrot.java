@@ -3,12 +3,14 @@ package parrot;
 public class Parrot {
 
     private ParrotTypeEnum type;
+    public boolean isNailed;
     public int numberOfCoconuts;
     public double voltage;
     public Parrot(ParrotTypeEnum _type, int numberOfCoconuts, double voltage, boolean isNailed) {
         this.type = _type;
         this.numberOfCoconuts=numberOfCoconuts;
         this.voltage=voltage;
+        this.isNailed=isNailed;
     }
 
     public double getSpeed() {
