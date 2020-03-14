@@ -32,17 +32,4 @@ public class Parrot {
     	throw new RuntimeException("Should be unreachable");
 	}
 
-	public double getBaseSpeed(double voltage) {
-        return Math.min(24.0, voltage*getBaseSpeed());
-    }
-
-    public double getLoadFactor() {
-        return 9.0;
-    }
-
-    public double getBaseSpeed() {
-        return 12.0;
-    }
-
-
 }
