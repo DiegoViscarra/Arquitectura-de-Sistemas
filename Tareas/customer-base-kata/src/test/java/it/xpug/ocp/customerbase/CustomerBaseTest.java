@@ -16,7 +16,6 @@ public class CustomerBaseTest {
 	private Customer charlie = new Customer("Charlie", "Bianchi", 30000);
 
 	private CustomerBase customerBase = new CustomerBase();
-	private Finder find=new Finder();
 
 	@Before
 	public void setUp() throws Exception {
@@ -27,28 +26,31 @@ public class CustomerBaseTest {
 
 	@Test
 	public void findByLastName() throws Exception {
-		List<Customer> found = find.findByLastName("Rossi");
+		Customer search = new Customer("Alice", "Rossi", 10000);
+		List<Customer> found = customerBase.FindCustomers(search, 1);
 		assertThat(found, is(asList(alice, bob)));
 	}
 
 	@Test
 	public void findByFirstAndLastName() throws Exception {
-		List<Customer> found = find.findByFirstAndLastName("Alice", "Rossi");
+		Customer search = new Customer("Alice", "Rossi", 10000);
+		List<Customer> found = customerBase.FindCustomers(search, 2);
 		assertThat(found, is(asList(alice)));
 	}
 
 	@Test
 	public void findWithCreditGreaterThan() throws Exception {
-		List<Customer> found = find.findByCreditGreaterThan(20000);
+		Customer search = new Customer("", "", 20000);
+		List<Customer> found = customerBase.FindCustomers(search, 3);
 		assertThat(found, is(asList(charlie)));
 	}
 
 	@Test
 	public void findWithCreditLessThan() throws Exception {
-		List<Customer> found = find.findWithCreditLessThan(20000);
+		Customer search = new Customer("", "", 20000);
+		List<Customer> found = customerBase.FindCustomers(search, 4);
 		assertThat(found, is(asList(alice)));
 
 	}
-
 
 }
