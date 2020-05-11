@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="birthday-greetings/src/main/java"/>
+	<classpathentry kind="src" path="birthday-greetings/src/test/java"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._activation-1.1-sources.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._activation-1.1.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._dumbster1.6.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._junit-4.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._junit-4.11-sources.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._junit-4.11.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._mail-1.4-sources.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/birthday-greetings/src/lib/._mail-1.4.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/activation-1.1-sources.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/dumbster1.6.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/junit-4.11-javadoc.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/junit-4.11-sources.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/mail-1.4-sources.jar"/>
+	<classpathentry kind="lib" path="birthday-greetings/src/lib/mail-1.4.jar"/>
+	<classpathentry kind="output" path="birthday-greetings/target/classes"/>
+</classpath>
